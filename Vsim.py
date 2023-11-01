@@ -353,157 +353,6 @@ def Simulator(ifile, disfile, simfile):
                 memorydis = duplimemorydis
                 change2 = 1
                 change = 0
-            # if SimulatorHelper[add][0] == 'beq':
-            #     UsedRegister[SimulatorHelper[add][1]] = 1
-            #     imm = SimulatorHelper[add][3]
-            #     if SimulatorHelper[add][4] == 1:
-            #         imm = (-1)*imm
-            #     if register[SimulatorHelper[add][1]] == register[SimulatorHelper[add][2]]:
-            #         imm = imm << 1
-            #         add += imm
-            #     else:
-            #         add = add + 4
-
-            # elif SimulatorHelper[add][0] == 'bne':
-            #     UsedRegister[SimulatorHelper[add][1]] = 1
-            #     imm = SimulatorHelper[add][3]
-            #     if SimulatorHelper[add][4] == 1:
-            #         imm = (-1)*imm
-            #     if register[SimulatorHelper[add][1]] != register[SimulatorHelper[add][2]]:
-            #         imm = imm << 1
-            #         add += imm
-            #     else:
-            #         add = add + 4
-
-            # elif SimulatorHelper[add][0] == 'blt':
-            #     UsedRegister[SimulatorHelper[add][1]] = 1
-            #     imm = SimulatorHelper[add][3]
-            #     if SimulatorHelper[add][4] == 1:
-            #         imm = (-1)*imm
-            #     if register[SimulatorHelper[add][1]] < register[SimulatorHelper[add][2]]:
-            #         imm = imm << 1
-            #         add += imm
-            #     else:
-            #         add = add + 4
-
-            # if SimulatorHelper[add][0] == 'sw':
-            #     imm = SimulatorHelper[add][3]
-            #     memorydis[imm+register[SimulatorHelper[add][2]]
-            #               ] = register[SimulatorHelper[add][1]]
-            #     add = add + 4
-
-            # elif SimulatorHelper[add][0] == 'add':
-            #     UsedRegister[SimulatorHelper[add][1]] = 1
-            #     register[SimulatorHelper[add][1]] = register[SimulatorHelper[add]
-            #                                                  [2]] + register[SimulatorHelper[add][3]]
-            #     add = add + 4
-            # elif SimulatorHelper[add][0] == 'sub':
-            #     UsedRegister[SimulatorHelper[add][1]] = 1
-            #     register[SimulatorHelper[add][1]] = register[SimulatorHelper[add]
-            #                                                  [2]] - register[SimulatorHelper[add][3]]
-            #     add = add + 4
-            # elif SimulatorHelper[add][0] == 'and':
-            #     UsedRegister[SimulatorHelper[add][1]] = 1
-            #     register[SimulatorHelper[add][1]] = register[SimulatorHelper[add]
-            #                                                  [2]] & register[SimulatorHelper[add][3]]
-            #     add = add + 4
-
-            # elif SimulatorHelper[add][0] == 'or':
-            #     UsedRegister[SimulatorHelper[add][1]] = 1
-            #     register[SimulatorHelper[add][1]] = register[SimulatorHelper[add]
-            #                                                  [2]] | register[SimulatorHelper[add][3]]
-            #     add = add + 4
-
-            # elif SimulatorHelper[add][0] == 'addi':
-            #     UsedRegister[SimulatorHelper[add][1]] = 1
-            #     imm = SimulatorHelper[add][3]
-            #     if SimulatorHelper[add][4] == 1:
-            #         imm = (-1) * SimulatorHelper[add][3]
-            #     register[SimulatorHelper[add][1]
-            #              ] = register[SimulatorHelper[add][2]] + imm
-            #     add = add + 4
-            # elif SimulatorHelper[add][0] == 'andi':
-            #     UsedRegister[SimulatorHelper[add][1]] = 1
-            #     imm = SimulatorHelper[add][3]
-            #     if SimulatorHelper[add][4] == 1:
-            #         imm = (-1) * SimulatorHelper[add][3]
-            #     register[SimulatorHelper[add][1]
-            #              ] = register[SimulatorHelper[add][2]] & imm
-            #     add = add + 4
-            # elif SimulatorHelper[add][0] == 'ori':
-            #     UsedRegister[SimulatorHelper[add][1]] = 1
-            #     imm = SimulatorHelper[add][3]
-            #     if SimulatorHelper[add][4] == 1:
-            #         imm = (-1) * SimulatorHelper[add][3]
-            #     register[SimulatorHelper[add][1]
-            #              ] = register[SimulatorHelper[add][2]] | imm
-            #     add = add + 4
-            # elif SimulatorHelper[add][0] == 'sll':
-            #     UsedRegister[SimulatorHelper[add][1]] = 1
-            #     register[SimulatorHelper[add][1]] = register[SimulatorHelper[add]
-            #                                                  [2]] << SimulatorHelper[add][3]
-            #     add = add + 4
-
-            # elif SimulatorHelper[add][0] == 'sra':
-            #     UsedRegister[SimulatorHelper[add][1]] = 1
-            #     register[SimulatorHelper[add][1]] = register[SimulatorHelper[add]
-            #                                                  [2]] >> SimulatorHelper[add][3]
-            #     add = add + 4
-
-            # elif SimulatorHelper[add][0] == 'lw':
-            #     UsedRegister[SimulatorHelper[add][1]] = 1
-            #     register[SimulatorHelper[add][1]] = memorydis[SimulatorHelper[add]
-            #                                                   [3] + register[SimulatorHelper[add][2]]]
-            #     add = add + 4
-
-            # # elif (SimulatorHelper[add][0] == 'jal'):
-            # #     jimm = SimulatorHelper[add][3]
-            # #     check = SimulatorHelper[add][1]
-            # #     register[SimulatorHelper[add][2]] = add + 4
-            # #     if check == 1:
-            # #         jimm = jimm * (-1)
-            # #     add = add + (jimm << 1)
-
-            # if (SimulatorHelper[add][-1] == 'break'):
-            #     simfile.write('--------------------\n')
-            #     simfile.write(f'Cycle {cycle}:{s}\n\n')
-            #     simfile.write('IF Unit:\n')
-            #     simfile.write(f'\tWaiting:{IfUnit[0]}\n')
-            #     simfile.write(f'\tExecuted:[break]\n')
-            #     simfile.write('Pre-Issue Queue:\n')
-            #     simfile.write(f'\tEntry 0:{Preissue[0]}\n')
-            #     simfile.write(f'\tEntry 1:{Preissue[1]}\n')
-            #     simfile.write(f'\tEntry 2:{Preissue[2]}\n')
-            #     simfile.write(f'\tEntry 3:{Preissue[3]}\n')
-            #     simfile.write('Pre-ALU1 Queue:\n')
-            #     simfile.write(f'\tEntry 0:{PreALU1[0]}\n')
-            #     simfile.write(f'\tEntry 1:{PreALU1[1]}\n')
-            #     simfile.write(f'Pre-MEM Queue:{MemQ[0]}\n')
-            #     simfile.write(f'Post-MEM Queue{MemQ[1]}\n')
-            #     simfile.write(f'Pre-ALU2 Queue:{ALU2[0]}\n')
-            #     simfile.write(f'Post-ALU2 Queue:{ALU2[1]}\n')
-            #     simfile.write(f'Pre-ALU3 Queue:{ALU3[0]}\n')
-            #     simfile.write(f'Post-ALU3 Queue:{ALU3[1]}\n\n')
-            #     simfile.write('Registers\n')
-            #     simfile.write(
-            #         f'x00:\t{register[0]}\t{register[1]}\t{register[2]}\t{register[3]}\t{register[4]}\t{register[5]}\t{register[6]}\t{register[7]}\n')
-            #     simfile.write(
-            #         f'x08:\t{register[8]}\t{register[9]}\t{register[10]}\t{register[11]}\t{register[12]}\t{register[13]}\t{register[14]}\t{register[15]}\n')
-            #     simfile.write(
-            #         f'x16:\t{register[16]}\t{register[17]}\t{register[18]}\t{register[19]}\t{register[20]}\t{register[21]}\t{register[22]}\t{register[23]}\n')
-            #     simfile.write(
-            #         f'x24:\t{register[24]}\t{register[25]}\t{register[26]}\t{register[27]}\t{register[28]}\t{register[29]}\t{register[30]}\t{register[31]}\n\n')
-            #     simfile.write('Data\n')
-            #     valuem = list(memorydis.values())
-            #     addressr = list(memorydis.keys())
-            #     for i in range(0, len(addressr), 8):
-            #         data = valuem[i:i+8]
-            #         memory = addressr[i]
-            #         simfile.write(f'{memory}:\t')
-            #         for d in data:
-            #             simfile.write(f'{d}\t')
-            #         simfile.write('\n')
-            #     break
 
             if MemQ[1] != "":
                 if MemQ[1][0] == 'lw':
@@ -536,20 +385,6 @@ def Simulator(ifile, disfile, simfile):
                 PreALU1[0] = PreALU1[1]
                 PreALU1[1] = ""
 
-            # elif (PreALU1[0] == "" and Preissue[0] != "" and (Preissue[0][0]=="lw" or Preissue[0][0]=="sw" )):
-            #     PreALU1[0] = Preissue[0]
-            #     Preissue[0] = Preissue[1]
-            #     Preissue[1] = Preissue[2]
-            #     Preissue[2] = Preissue[3]
-            #     Preissue[3] = ""
-
-            # elif (PreALU1[0] != "" and PreALU1[1] == "" and Preissue[0] != "" and (Preissue[0][0]=="lw" or Preissue[0][0]=="sw" )):
-            #     PreALU1[1] = Preissue[0]
-            #     Preissue[0] = Preissue[1]
-            #     Preissue[1] = Preissue[2]
-            #     Preissue[2] = Preissue[3]
-            #     Preissue[3] = ""
-
             if ALU2[1] != "":
                 # UsedRegister[ALU2[1][1]] = 0
                 UsedRegisterb[ALU2[1][1]] = 0
@@ -578,13 +413,6 @@ def Simulator(ifile, disfile, simfile):
                     rd = ALU2[0][1]
                 ALU2[1] = ALU2[0]
                 ALU2[0] = ""
-
-            # if (ALU2[0] == "" and ALU2[1] == "" and Preissue[0] != "" and (Preissue[0][0]=="add" or Preissue[0][0]=="sub" or Preissue[0][0]=="addi")):
-            #     ALU2[0] = Preissue[0]
-            #     Preissue[0] = Preissue[1]
-            #     Preissue[1] = Preissue[2]
-            #     Preissue[2] = Preissue[3]
-            #     Preissue[3] = ""
 
             if ALU3[1] != "":
                 # UsedRegister[ALU3[1][1]] =0
@@ -636,233 +464,55 @@ def Simulator(ifile, disfile, simfile):
                 ALU3[1] = ALU3[0]
                 ALU3[0] = ""
 
-            # elif (ALU3[0] == "" and Preissue[0] != "" and (Preissue[0][0]=="andi" or Preissue[0][0]=="ori" or Preissue[0][0]=="sll" or Preissue[0][0]=="sra"or Preissue[0][0]=="and"or Preissue[0][0]=="or")):
-            #     ALU3[0] = Preissue[0]
-            #     Preissue[0] = Preissue[1]
-            #     Preissue[1] = Preissue[2]
-            #     Preissue[2] = Preissue[3]
-            #     Preissue[3] = ""
             if Preissue[3] != "":
                 stopissue = 0
             here = 0
-            # LPI = len([x for x in Preissue.values() if x != ""])
-            # for i in range(LPI):
-            #     if (ALU2[0] == "" and ALU2[1] == "" and Preissue[i] != "" and (Preissue[i][0]=="add" or Preissue[i][0]=="sub" or Preissue[i][0]=="addi")):
-            #             if  UsedRegister[Preissue[i][2]] == 0 and UsedRegister[Preissue[i][3]] == 0:
-            #                 UsedRegister[Preissue[i][1]] = 1
-            #                 ALU2[0] = Preissue[i]
-            #                 here = 1
 
-            #     elif (ALU3[0] == "" and ALU3[1] == "" and Preissue[i] != "" and (Preissue[i][0]=="andi" or Preissue[i][0]=="ori" or Preissue[i][0]=="sll" or Preissue[i][0]=="sra"or Preissue[i][0]=="and"or Preissue[i][0]=="or")):
-            #             if  UsedRegister[Preissue[i][2]] == 0:
-            #                 UsedRegister[Preissue[i][1]] = 1
-            #                 ALU3[0] = Preissue[i]
-            #                 here =1
-
-            #     elif ((PreALU1[0] == "" or PreALU1[1] == "") and Preissue[i] != "" and (Preissue[i][0]=="lw" or Preissue[i][0]=="sw" )):
-            #             if ((Preissue[i][0] == "lw" and UsedRegister[Preissue[i][2]] == 0) or Preissue[i][0]=="sw"):
-            #                 if Preissue[i][0] == "lw":
-            #                     UsedRegister[Preissue[i][1]] = 1
-            #                     # UsedRegister[Preissue[1][1]] = 1
-            #                 for space in range(2):
-            #                     if PreALU1[space] == "":
-            #                         PreALU1[space] = Preissue[i]
-            #                         break
-            #                 PreALU1[0] = Preissue[i]
-            #                 here = 1
-            # if here == 1:
-            #     Preissue[0] = Preissue[1]
-            #     Preissue[1] = Preissue[2]
-            #     Preissue[2] = Preissue[3]
-            #     Preissue[3] = ""
-            # for i in range(2)
-            # issue = [x for x in Preissue.values() if x != ""]
-            # prealu =[]
-            # a = 0
-            # for i in issue:
-            #     # print("")
-            #     # print(UsedRegister)
-            #     if (ALU2[0] == "" and ALU2[1] == "" and len(i)>0 and (i[0] == "add" or i[0] == "sub" or i[0] == "addi")):
-            #         if UsedRegister[i[2]] == 0 and UsedRegister[i[3]] == 0:
-            #             UsedRegister[i[1]] = 1
-            #             ALU2[0] = i
-            #             issue.pop(a)
-
-            #     elif (ALU3[0] == "" and ALU3[1] == "" and len(i)>0 and (i[0] == "andi" or i[0] == "ori" or i[0] == "sll" or i[0] == "sra" or i[0] == "and" or i[0] == "or")):
-            #         if UsedRegister[i[2]] == 0:
-            #             UsedRegister[i[1]] = 1
-                        
-            #             ALU3[0] = i
-            #             issue.pop(a)
-
-            #     elif ((PreALU1[0] == "") and len(i)>0 and (i[0] == "lw" or i[0] == "sw")):
-            #         if ((i[0] == "lw" and UsedRegister[i[2]] == 0) or i[0] == "sw"):
-            #             if i[0] == "lw":
-            #                 UsedRegister[i[1]] = 1
-            #                 # UsedRegister[Preissue[1][1]] = 1
-            #             # for space in range(2):
-            #             #     if PreALU1[space] == "":
-            #             #         PreALU1[space] = i
-            #             #         break
-            #             prealu.append(i)
-            #             issue.pop(a)
-            #     else:
-            #         a = a+1
-            # for i in range(len(prealu)):
-            #     PreALU1[i] = prealu[i]
-
-            # Preissue[0]=""
-            # Preissue[1]=""
-            # Preissue[2]=""
-            # Preissue[3]=""
-
-            # for i in range(len(issue)):
-            #     Preissue[i] = issue[i]
-            
-
-            if (ALU2[0] == "" and ALU2[1] == "" and Preissue[0] != "" and (Preissue[0][0] == "add" or Preissue[0][0] == "sub" or Preissue[0][0] == "addi")):
-                if UsedRegister[Preissue[0][2]] == 0 and UsedRegister[Preissue[0][3]] == 0:
-                    UsedRegister[Preissue[0][1]] = 1
-                    ALU2[0] = Preissue[0]
-                    Preissue[0] = Preissue[1]
-                    Preissue[1] = Preissue[2]
-                    Preissue[2] = Preissue[3]
-                    Preissue[3] = ""
-
-            elif (ALU3[0] == "" and ALU3[1] == "" and Preissue[0] != "" and (Preissue[0][0] == "andi" or Preissue[0][0] == "ori" or Preissue[0][0] == "sll" or Preissue[0][0] == "sra" or Preissue[0][0] == "and" or Preissue[0][0] == "or")):
-                if UsedRegister[Preissue[0][2]] == 0:
-                    UsedRegister[Preissue[0][1]] = 1
-                    ALU3[0] = Preissue[0]
-  
-                    Preissue[0] = Preissue[1]
-
-                    Preissue[1] = Preissue[2]
-                    Preissue[2] = Preissue[3]
-                    Preissue[3] = ""
-
-            elif ((PreALU1[0] == "" or PreALU1[1] == "") and Preissue[0] != "" and (Preissue[0][0] == "lw" or Preissue[0][0] == "sw")):
-                if ((Preissue[0][0] == "lw" and UsedRegister[Preissue[0][2]] == 0) or Preissue[0][0] == "sw"):
-                    if Preissue[0][0] == "lw":
+            issue = [x for x in Preissue.values() if x!=""]
+            print(cycle,UsedRegister,"\n")
+            for i in range(len(issue)):
+                if (ALU2[0] == "" and ALU2[1] == "" and Preissue[0] != "" and (Preissue[0][0] == "add" or Preissue[0][0] == "sub" or Preissue[0][0] == "addi")):
+                    if UsedRegister[Preissue[0][2]] == 0 and UsedRegister[Preissue[0][3]] == 0:
                         UsedRegister[Preissue[0][1]] = 1
-                        # UsedRegister[Preissue[1][1]] = 1
-                    # for space in range(2):
-                    #     if PreALU1[space] == "":
-                    #         PreALU1[space] = Preissue[0]
-                    #         break
-                    PreALU1[0] = Preissue[0]
-                    Preissue[0] = Preissue[1]
-                    Preissue[1] = Preissue[2]
-                    Preissue[2] = Preissue[3]
-                    Preissue[3] = ""
-
-            if (ALU2[0] == "" and ALU2[1] == "" and Preissue[0] != "" and (Preissue[0][0] == "add" or Preissue[0][0] == "sub" or Preissue[0][0] == "addi")):
-                if UsedRegister[Preissue[0][1]] == 0 and UsedRegister[Preissue[0][3]] == 0:
-                    UsedRegister[Preissue[0][2]] = 1
-                    ALU2[0] = Preissue[0]
-                    Preissue[0] = Preissue[1]
-                    Preissue[1] = Preissue[2]
-                    Preissue[2] = Preissue[3]
-                    Preissue[3] = ""
-
-            elif (ALU3[0] == "" and ALU3[1] == "" and Preissue[0] != "" and (Preissue[0][0] == "andi" or Preissue[0][0] == "ori" or Preissue[0][0] == "sll" or Preissue[0][0] == "sra" or Preissue[0][0] == "and" or Preissue[0][0] == "or")):
-                if UsedRegister[Preissue[0][2]] == 0:
-                    UsedRegister[Preissue[0][1]] = 1
-                    ALU3[0] = Preissue[0]
-                    Preissue[0] = Preissue[1]
-                    Preissue[1] = Preissue[2]
-                    Preissue[2] = Preissue[3]
-                    Preissue[3] = ""
-
-            elif ((PreALU1[0] == "" or PreALU1[1] == "") and Preissue[0] != "" and (Preissue[0][0] == "lw" or Preissue[0][0] == "sw")):
-                if ((Preissue[0][0] == "lw" and UsedRegister[Preissue[0][2]] == 0) or Preissue[0][0] == "sw"):
-                    if Preissue[0][0] == "lw":
-                        UsedRegister[Preissue[0][1]] = 1
-                        # UsedRegister[Preissue[1][1]] = 1
-                    # for space in range(2):
-                    #     if PreALU1[space] == "":
-                    #         PreALU1[space] = Preissue[0]
-                    #         break
-                    if PreALU1[0] !="" and PreALU1[0][2]!=Preissue[0][2]:
-                        PreALU1[1] = Preissue[0]
-                    # elif PreALU1[0] =="":
-                    #     PreALU1[0] = Preissue[0]
+                        ALU2[0] = Preissue[0]
                         Preissue[0] = Preissue[1]
                         Preissue[1] = Preissue[2]
                         Preissue[2] = Preissue[3]
                         Preissue[3] = ""
 
-            if (ALU2[0] == "" and ALU2[1] == "" and Preissue[0] != "" and (Preissue[0][0] == "add" or Preissue[0][0] == "sub" or Preissue[0][0] == "addi")):
-                if UsedRegister[Preissue[0][2]] == 0 and UsedRegister[Preissue[0][3]] == 0:
-                    UsedRegister[Preissue[0][1]] = 1
-                    ALU2[0] = Preissue[0]
-                    Preissue[0] = Preissue[1]
-                    Preissue[1] = Preissue[2]
-                    Preissue[2] = Preissue[3]
-                    Preissue[3] = ""
+                elif (ALU3[0] == "" and ALU3[1] == "" and Preissue[0] != "" and ((Preissue[0][0] == "andi" or Preissue[0][0] == "ori" or Preissue[0][0] == "sll" or Preissue[0][0] == "sra") and UsedRegister[Preissue[0][2]] == 0)or ((Preissue[0][0] == "and" or Preissue[0][0] == "or") and UsedRegister[Preissue[0][2]] == 0 and UsedRegister[Preissue[0][3]] == 0 )):
 
-            elif (ALU3[0] == "" and ALU3[1] == "" and Preissue[0] != "" and (Preissue[0][0] == "andi" or Preissue[0][0] == "ori" or Preissue[0][0] == "sll" or Preissue[0][0] == "sra" or Preissue[0][0] == "and" or Preissue[0][0] == "or")):
-                if UsedRegister[Preissue[0][2]] == 0:
-                    UsedRegister[Preissue[0][1]] = 1
-                    ALU3[0] = Preissue[0]
-                    Preissue[0] = Preissue[1]
-                    Preissue[1] = Preissue[2]
-                    Preissue[2] = Preissue[3]
-                    Preissue[3] = ""
-
-            elif ((PreALU1[0] == "" or PreALU1[1] == "") and Preissue[0] != "" and (Preissue[0][0] == "lw" or Preissue[0][0] == "sw")):
-                if ((Preissue[0][0] == "lw" and UsedRegister[Preissue[0][2]] == 0) or Preissue[0][0] == "sw"):
-                    if Preissue[0][0] == "lw":
                         UsedRegister[Preissue[0][1]] = 1
-                        # UsedRegister[Preissue[1][1]] = 1
-                    # for space in range(2):
-                    #     if PreALU1[space] == "":
-                    #         PreALU1[space] = Preissue[0]
-                    #         break
-                    if PreALU1[0] !="" and PreALU1[0][2]!=Preissue[0][2]:
-                        PreALU1[1] = Preissue[0]
-                    # elif PreALU1[0] =="":
-                    #     PreALU1[0] = Preissue[0]
-                        Preissue[0] = Preissue[1]
-                        Preissue[1] = Preissue[2]
-                        Preissue[2] = Preissue[3]
-                        Preissue[3] = ""
-            if (ALU2[0] == "" and ALU2[1] == "" and Preissue[0] != "" and (Preissue[0][0] == "add" or Preissue[0][0] == "sub" or Preissue[0][0] == "addi")):
-                if UsedRegister[Preissue[0][2]] == 0 and UsedRegister[Preissue[0][3]] == 0:
-                    UsedRegister[Preissue[0][1]] = 1
-                    ALU2[0] = Preissue[0]
-                    Preissue[0] = Preissue[1]
-                    Preissue[1] = Preissue[2]
-                    Preissue[2] = Preissue[3]
-                    Preissue[3] = ""
+                        ALU3[0] = Preissue[0]
 
-            elif (ALU3[0] == "" and ALU3[1] == "" and Preissue[0] != "" and (Preissue[0][0] == "andi" or Preissue[0][0] == "ori" or Preissue[0][0] == "sll" or Preissue[0][0] == "sra" or Preissue[0][0] == "and" or Preissue[0][0] == "or")):
-                if UsedRegister[Preissue[0][2]] == 0:
-                    UsedRegister[Preissue[0][1]] = 1
-                    ALU3[0] = Preissue[0]
-                    Preissue[0] = Preissue[1]
-                    Preissue[1] = Preissue[2]
-                    Preissue[2] = Preissue[3]
-                    Preissue[3] = ""
-
-            elif ((PreALU1[0] == "" or PreALU1[1] == "") and Preissue[0] != "" and (Preissue[0][0] == "lw" or Preissue[0][0] == "sw")):
-                if ((Preissue[0][0] == "lw" and UsedRegister[Preissue[0][2]] == 0) or Preissue[0][0] == "sw"):
-                    if Preissue[0][0] == "lw":
-                        UsedRegister[Preissue[0][1]] = 1
-                        # UsedRegister[Preissue[1][1]] = 1
-                    # for space in range(2):
-                    #     if PreALU1[space] == "":
-                    #         PreALU1[space] = Preissue[0]
-                    #         break
-                    if PreALU1[0] !="" and PreALU1[0][2] != Preissue[0][2]:
-                        PreALU1[1] = Preissue[0]
-                    # elif PreALU1[0] =="":
-                    #     PreALU1[0] = Preissue[0]
                         Preissue[0] = Preissue[1]
+
                         Preissue[1] = Preissue[2]
                         Preissue[2] = Preissue[3]
                         Preissue[3] = ""
 
-
+                elif ((PreALU1[0] == "" or PreALU1[1] == "") and Preissue[0] != "" and (Preissue[0][0] == "lw" or Preissue[0][0] == "sw")):
+                    if ((Preissue[0][0] == "lw" and UsedRegister[Preissue[0][2]] == 0) or Preissue[0][0] == "sw"):
+                        if Preissue[0][0] == "lw":
+                            UsedRegister[Preissue[0][1]] = 1
+                            # UsedRegister[Preissue[1][1]] = 1
+                        # for space in range(2):
+                        #     if PreALU1[space] == "":
+                        #         PreALU1[space] = Preissue[0]
+                        #         break
+                        # PreALU1[0] = Preissue[0]
+                        if PreALU1[0] !="" and PreALU1[0][2] != Preissue[0][2]:
+                            PreALU1[1] = Preissue[0]
+                            Preissue[0] = Preissue[1]
+                            Preissue[1] = Preissue[2]
+                            Preissue[2] = Preissue[3]
+                            Preissue[3] = ""
+                        elif PreALU1[0] =="":
+                            PreALU1[0] = Preissue[0]
+                            Preissue[0] = Preissue[1]
+                            Preissue[1] = Preissue[2]
+                            Preissue[2] = Preissue[3]
+                            Preissue[3] = ""
 
             if change2 == 1:
                 if  rd!= -1:
@@ -919,48 +569,6 @@ def Simulator(ifile, disfile, simfile):
                         UsedRegisterb[Preissue[i+1][1]] = 1
                     if Preissue[i+2] != "":
                         UsedRegisterb[Preissue[i+2][1]] = 1
-
-            # if (SimulatorHelper[add][-1] == 'break'):
-
-            #     simfile.write('--------------------\n')
-            #     simfile.write(f'Cycle {cycle}:\n\n')
-            #     simfile.write('IF Unit:\n')
-            #     simfile.write(f'\tWaiting:{[IfUnit[0]][-1]}\n')
-            #     simfile.write(f'\tExecuted:[break]\n')
-            #     simfile.write('Pre-Issue Queue:\n')
-            #     simfile.write(f'\tEntry 0:{[Preissue[0]][-1]}\n')
-            #     simfile.write(f'\tEntry 1:{[Preissue[1]][-1]}\n')
-            #     simfile.write(f'\tEntry 2:{[Preissue[2]][-1]}\n')
-            #     simfile.write(f'\tEntry 3:{[Preissue[3]][-1]}\n')
-            #     simfile.write('Pre-ALU1 Queue:\n')
-            #     simfile.write(f'\tEntry 0:{[PreALU1[0]][-1]}\n')
-            #     simfile.write(f'\tEntry 1:{[PreALU1[1]][-1]}\n')
-            #     simfile.write(f'Pre-MEM Queue:{[MemQ[0]][-1]}\n')
-            #     simfile.write(f'Post-MEM Queue:{[MemQ[1]][-1]}\n')
-            #     simfile.write(f'Pre-ALU2 Queue:{[ALU2[0]][-1]}\n')
-            #     simfile.write(f'Post-ALU2 Queue:{[ALU2[1]][-1]}\n')
-            #     simfile.write(f'Pre-ALU3 Queue:{[ALU3[0]][-1]}\n')
-            #     simfile.write(f'Post-ALU3 Queue:{[ALU3[1]][-1]}\n\n')
-            #     simfile.write('Registers\n')
-            #     simfile.write(
-            #         f'x00:\t{register[0]}\t{register[1]}\t{register[2]}\t{register[3]}\t{register[4]}\t{register[5]}\t{register[6]}\t{register[7]}\n')
-            #     simfile.write(
-            #         f'x08:\t{register[8]}\t{register[9]}\t{register[10]}\t{register[11]}\t{register[12]}\t{register[13]}\t{register[14]}\t{register[15]}\n')
-            #     simfile.write(
-            #         f'x16:\t{register[16]}\t{register[17]}\t{register[18]}\t{register[19]}\t{register[20]}\t{register[21]}\t{register[22]}\t{register[23]}\n')
-            #     simfile.write(
-            #         f'x24:\t{register[24]}\t{register[25]}\t{register[26]}\t{register[27]}\t{register[28]}\t{register[29]}\t{register[30]}\t{register[31]}\n\n')
-            #     simfile.write('Data\n')
-            #     valuem = list(memorydis.values())
-            #     addressr = list(memorydis.keys())
-            #     for i in range(0, len(addressr), 8):
-            #         data = valuem[i:i+8]
-            #         memory = addressr[i]
-            #         simfile.write(f'{memory}:\t')
-            #         for d in data:
-            #             simfile.write(f'{d}\t')
-            #         simfile.write('\n')
-            #     break
 
             simfile.write('--------------------\n')
             simfile.write(f'Cycle {cycle}:\n\n')
@@ -1046,7 +654,7 @@ def Simulator(ifile, disfile, simfile):
                 for d in data:
                     simfile.write(f'{d}\t')
                 simfile.write('\n')
-            print(UsedRegister)
+            # print(UsedRegister)
             cycle = cycle + 1
 
 
