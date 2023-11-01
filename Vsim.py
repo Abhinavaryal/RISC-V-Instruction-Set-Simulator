@@ -472,7 +472,7 @@ def Simulator(ifile, disfile, simfile):
             print(cycle,UsedRegister,"\n")
             for i in range(len(issue)):
                 if (ALU2[0] == "" and ALU2[1] == "" and Preissue[0] != "" and (Preissue[0][0] == "add" or Preissue[0][0] == "sub" or Preissue[0][0] == "addi")):
-                    if UsedRegister[Preissue[0][2]] == 0 and UsedRegister[Preissue[0][3]] == 0:
+                    if UsedRegister[Preissue[0][2]] == 0 and UsedRegister[Preissue[0][3]] == 0 and UsedRegister[Preissue[0][1]] == 0:
                         UsedRegister[Preissue[0][1]] = 1
                         ALU2[0] = Preissue[0]
                         Preissue[0] = Preissue[1]
@@ -481,7 +481,7 @@ def Simulator(ifile, disfile, simfile):
                         Preissue[3] = ""
 
                 elif (ALU3[0] == "" and ALU3[1] == "" and Preissue[0] != "" and ((Preissue[0][0] == "andi" or Preissue[0][0] == "ori" or Preissue[0][0] == "sll" or Preissue[0][0] == "sra") and UsedRegister[Preissue[0][2]] == 0)or ((Preissue[0][0] == "and" or Preissue[0][0] == "or") and UsedRegister[Preissue[0][2]] == 0 and UsedRegister[Preissue[0][3]] == 0 )):
-
+                    if UsedRegister[Preissue[0][1]] == 0:
                         UsedRegister[Preissue[0][1]] = 1
                         ALU3[0] = Preissue[0]
 
