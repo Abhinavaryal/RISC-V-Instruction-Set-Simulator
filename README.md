@@ -101,7 +101,3 @@ Edit
 
 ---
 
-## **Acknowledgments**
-This project was developed as a self-initiated learning endeavor to explore the RISC-V instruction set architecture and gain hands-on experience in system simulation and pipeline design.
-
----
