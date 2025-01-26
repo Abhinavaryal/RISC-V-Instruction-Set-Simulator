@@ -49,25 +49,18 @@ The RISC-V Instruction Set Simulator is a Python-based tool designed to decode, 
 ### **Input Binary File**
 00000000000000000000000010000011 00000000010000001000000010110011
 
-markdown
-Copy
-Edit
+
 
 ### **Generated Disassembly (disassembly.txt)**
 00000000000000000000000010000011 256 lw x1, 0(x0) 00000000010000001000000010110011 260 add x1, x2, x0
 
-markdown
-Copy
-Edit
+
 
 ### **Generated Simulation Log (simulation.txt)**
 Cycle 1: IF Unit: Waiting: Executed: [lw x1, 0(x0)]
 
 Registers: x00: 0 0 0 0 0 0 0 0 x08: 0 0 0 0 0 0 0 0 ...
 
-yaml
-Copy
-Edit
 
 ---
 
