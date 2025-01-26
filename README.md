@@ -1,49 +1,107 @@
-README for RISC-V Instruction Set Simulator
-Project Overview
-The RISC-V Instruction Set Simulator is a Python-based project designed to parse and simulate a subset of the RISC-V instruction set. It performs disassembly of binary instructions, simulates their execution in a pipeline, and logs results to text files.
+# **RISC-V Instruction Set Simulator**
 
-Features
-Instruction Parsing and Disassembly:
+## **Overview**
+The RISC-V Instruction Set Simulator is a Python-based tool designed to decode, disassemble, and simulate a subset of the RISC-V instruction set architecture (ISA). This project helps developers and researchers understand RISC-V instructions by providing a step-by-step disassembly and execution simulation, along with comprehensive logs.
 
-Supports key RISC-V instructions: branching (beq, bne, blt), arithmetic (add, sub, and, or), and memory operations (lw, sw).
-Handles two's complement for signed values in immediate fields.
-Pipeline Simulation:
+---
 
-Simulates instruction fetch, decode, execution, and memory access stages.
-Maintains accurate register states and memory mapping.
-Logging:
+## **Features**
+1. **Instruction Decoding and Disassembly**:
+   - Supports key RISC-V instructions including branching (`beq`, `bne`, `blt`), arithmetic (`add`, `sub`, `and`, `or`), and memory operations (`lw`, `sw`).
+   - Handles two's complement calculations for signed immediate values.
+   - Converts binary instructions into human-readable assembly code.
 
-Outputs human-readable disassembly in disassembly.txt.
-Outputs cycle-by-cycle execution logs in simulation.txt.
-Getting Started
-To run the simulator:
+2. **Pipeline Simulation**:
+   - Implements stages of instruction execution: fetch, decode, execute, memory, and write-back.
+   - Simulates a cycle-accurate pipeline for instruction execution.
 
-Ensure Python 3.x is installed on your system.
-Place the RISC-V binary input file in the same directory.
-Run the simulator with:
-bash
+3. **Memory and Register Management**:
+   - Maintains a 32-register array and memory-mapped addresses for simulation.
+   - Supports memory instructions with proper address calculations and updates.
+
+4. **Logging**:
+   - Outputs **disassembly logs** with memory addresses and instructions.
+   - Generates **cycle-by-cycle simulation logs** showing register and memory updates.
+
+---
+
+## **How to Use**
+
+### **Pre-requisites**
+   - Python 3.x installed on your system.
+
+### **Steps to Run**
+   1. Place the RISC-V binary input file in the same directory as the script.
+   2. Run the following command in the terminal:
+      ```bash
+      python vsim.py <input_file>
+      ```
+   3. Replace `<input_file>` with the name of your RISC-V binary input file (e.g., `input.txt`).
+
+### **File Outputs**
+   - **disassembly.txt**: Disassembled instructions with memory addresses.
+   - **simulation.txt**: Cycle-by-cycle execution logs, including register and memory states.
+
+---
+
+## **Example**
+
+### **Input Binary File**
+00000000000000000000000010000011 00000000010000001000000010110011
+
+markdown
 Copy
 Edit
-python simulator.py <input_file>
-File Outputs
-disassembly.txt: Contains disassembled instructions along with their memory addresses.
-simulation.txt: Detailed cycle-by-cycle logs including registers, memory, and instruction execution.
-Key Code Features
-Instruction Decoding:
 
-Uses helper functions like getcode and twoscomp to decode binary fields.
-Decodes opcode, registers, and immediate values.
-Branching Support:
+### **Generated Disassembly (disassembly.txt)**
+00000000000000000000000010000011 256 lw x1, 0(x0) 00000000010000001000000010110011 260 add x1, x2, x0
 
-Implements branching logic (beq, bne, blt) and updates the program counter accordingly.
-Memory and Register Management:
+markdown
+Copy
+Edit
 
-Maintains a memory dictionary and a 32-register array for simulation.
-Implements memory instructions (lw, sw) with proper address calculations.
-Technologies Used
-Python 3.x
-Data structures: dictionaries, lists, and queues
-Future Improvements
-Support for additional RISC-V instructions.
-Implementation of pipelining and hazard detection.
-Visualization of the simulation process.
+### **Generated Simulation Log (simulation.txt)**
+Cycle 1: IF Unit: Waiting: Executed: [lw x1, 0(x0)]
+
+Registers: x00: 0 0 0 0 0 0 0 0 x08: 0 0 0 0 0 0 0 0 ...
+
+yaml
+Copy
+Edit
+
+---
+
+## **Code Highlights**
+1. **Instruction Decoding**:
+   - Functions like `getcode` extract binary fields for opcodes, registers, and immediate values.
+   - `twoscomp` calculates two's complement for signed immediate values.
+
+2. **Branching**:
+   - Implements branching logic (`beq`, `bne`, `blt`) to update the program counter.
+
+3. **Memory Operations**:
+   - Handles `lw` and `sw` instructions, accurately calculating memory addresses and performing read/write operations.
+
+4. **Simulation**:
+   - Simulates execution stages (fetch, decode, execute, memory) and maintains a log of all operations.
+
+---
+
+## **Technologies Used**
+- **Language**: Python 3.x
+- **Data Structures**: Dictionaries, lists, queues for instruction and state management.
+
+---
+
+## **Future Improvements**
+- Support additional RISC-V instructions and extensions.
+- Add pipeline visualization to show instruction execution stages.
+- Implement hazard detection and resolution for better pipeline accuracy.
+- Expand functionality to handle floating-point operations.
+
+---
+
+## **Acknowledgments**
+This project was developed as a self-initiated learning endeavor to explore the RISC-V instruction set architecture and gain hands-on experience in system simulation and pipeline design.
+
+---
